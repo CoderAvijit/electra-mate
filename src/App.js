@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import avatar from './avijit.jpg';
+import RequestForm from './component/RequestForm';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
             <li>Refrigerator Fixes</li>
             <li>Heater Repairs</li>
           </ul>
+        </section>
+        <section>
+        <RequestForm/>
         </section>
         <section className="contact">
           <h2>Contact Us</h2>
