@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RequestForm.css'
+import './RequestForm.css';
 
 function RequestForm() {
   const [formData, setFormData] = useState({
@@ -27,16 +27,16 @@ function RequestForm() {
         body: JSON.stringify(formData),
       });
       const result = await response.json();
-      setResponseMessage('Request Recieved! Thank You!♥');
+      setResponseMessage('Request Received! Thank You! ♥');
     } catch (error) {
-      setResponseMessage('Request Recieved! Thank You!♥');
+      setResponseMessage('Request Received! Thank You! ♥');
     }
   };
 
   return (
     <div className="request-form">
-      <h2>Raise a Service Request</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="form-header">Raise a Service Request</h2>
+      <form onSubmit={handleSubmit} className="form-container">
         <input
           type="text"
           name="name"
@@ -48,7 +48,7 @@ function RequestForm() {
         <input
           type="text"
           name="phone"
-          placeholder="Phone Number(eg- +9199xxxxxxxx)"
+          placeholder="Phone Number (e.g., +9199xxxxxxxx)"
           value={formData.phone}
           onChange={handleChange}
           required
@@ -88,7 +88,9 @@ function RequestForm() {
           onChange={handleChange}
           required
         ></textarea>
-        <button type="submit">Submit Request</button>
+        <button type="submit" className="submit-button">
+          Submit Request
+        </button>
       </form>
       {responseMessage && <p className="response-message">{responseMessage}</p>}
     </div>

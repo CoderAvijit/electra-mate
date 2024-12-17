@@ -59,7 +59,7 @@ body {
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
-  top: 100px; /* Keeps the services pane in view when scrolling */
+  top: 100px;
 }
 
 .services-pane h2 {
@@ -152,25 +152,56 @@ body {
   font-weight: bold;
 }
 
-/* About Section */
-.about {
-  margin-top: 20px;
+/* Services Section */
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.service-item {
+  flex: 1 1 calc(30% - 1rem);
+  max-width: 30%;
+  padding: 1.5rem;
   background: #ffffff;
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, background 0.5s ease;
+  animation: colorCycle 6s infinite alternate;
 }
 
-.about h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;
-  color: #0074d9;
+.service-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-.about p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+.service-item h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.service-item p {
+  font-size: 1rem;
+  color: #666;
+}
+
+@keyframes colorCycle {
+  0% {
+    background: #f9f9f9;
+  }
+  33% {
+    background: #e3f2fd;
+  }
+  66% {
+    background: #ffe0b2;
+  }
+  100% {
+    background: #e8f5e9;
+  }
 }
 
 /* Footer */
@@ -205,6 +236,15 @@ body {
     gap: 15px;
   }
 
+  .services-container {
+    gap: 1rem;
+  }
+
+  .service-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
   .request-form {
     padding: 20px;
     max-width: 100%;
@@ -224,16 +264,78 @@ body {
     padding: 10px;
   }
 }
-
-
-
-.contact-us h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;
-  color: #0074d9;
+/* Services Pane */
+.services-pane {
+  background: #e8f5e9; /* Change the background color */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 100px; /* Keeps the services pane in view when scrolling */
 }
 
-.contact-us p {
+.services-pane h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  color: #388e3c; /* Updated text color */
+  margin-bottom: 10px;
+}
+
+.services-pane ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.services-pane li {
+  margin: 10px 0;
   font-size: 1.1rem;
-  line-height: 1.6;
+  color: #2e7d32; /* Updated list item color */
+}
+/* Animation for moving text */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* Animation for moving text from right to left */
+@keyframes slideOut {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+    opacity: 0;
+  }
+  50% {
+    opacity: 1; /* Gradually become visible */
+  }
+  100% {
+    transform: translateX(0); /* End at original position */
+    opacity: 1;
+  }
+}
+
+
+.header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  margin: 0;
+  animation: slideIn 10s linear infinite; /* Apply the animation */
+  display: inline-block;
+  position: fixed;
+}
+.header p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem; /* Adjusted for paragraph text */
+  margin-top: 50px; /* Push the p tag down further */
+  animation: slideOut 10s linear infinite; /* Apply the right-to-left animation */
+  display: inline-block;
+  position: relative;
+  top: 10px; /* You can adjust this value if you need to move the p tag more down */
 }
