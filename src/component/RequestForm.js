@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './RequestForm.css';
+import '../App.css';
 
 function RequestForm() {
   const [formData, setFormData] = useState({
@@ -8,10 +8,11 @@ function RequestForm() {
     email: '',
     location: '',
     serviceType: '',
-    message: ''
+    message: '',
   });
 
   const [responseMessage, setResponseMessage] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,16 +21,29 @@ function RequestForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setResponseMessage(''); // Clear any previous messages
+
     try {
-      const response = await fetch('https://electra-mate-production.up.railway.app/api/request/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      const result = await response.json();
-      setResponseMessage('Request Received! Thank You! ♥');
+      const response = await fetch(
+        process.env.REACT_APP_API_URL || 'https://electra-mate-production.up.railway.app/api/request/send',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        setResponseMessage('Request Received! Thank You! ♥');
+      } else {
+        const errorData = await response.json();
+        setResponseMessage(`Error: ${errorData.message || 'Something went wrong'}`);
+      }
     } catch (error) {
-      setResponseMessage('Request Received! Thank You! ♥');
+      setResponseMessage('Failed to send request. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -43,6 +57,7 @@ function RequestForm() {
           placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
+          aria-label="Your Name"
           required
         />
         <input
@@ -51,6 +66,9 @@ function RequestForm() {
           placeholder="Phone Number (e.g., +9199xxxxxxxx)"
           value={formData.phone}
           onChange={handleChange}
+          pattern="^\+91[6-9][0-9]{9}$"
+          title="Phone number must be in the format +9199xxxxxxxx"
+          aria-label="Phone Number"
           required
         />
         <input
@@ -59,6 +77,7 @@ function RequestForm() {
           placeholder="Email Address"
           value={formData.email}
           onChange={handleChange}
+          aria-label="Email Address"
           required
         />
         <input
@@ -67,12 +86,14 @@ function RequestForm() {
           placeholder="Location"
           value={formData.location}
           onChange={handleChange}
+          aria-label="Location"
           required
         />
         <select
           name="serviceType"
           value={formData.serviceType}
           onChange={handleChange}
+          aria-label="Service Type"
           required
         >
           <option value="">Select Service Type</option>
@@ -86,10 +107,11 @@ function RequestForm() {
           placeholder="Additional Message"
           value={formData.message}
           onChange={handleChange}
+          aria-label="Additional Message"
           required
         ></textarea>
-        <button type="submit" className="submit-button">
-          Submit Request
+        <button type="submit" className="submit-button" disabled={isSubmitting}>
+          {isSubmitting ? 'Submitting...' : 'Submit Request'}
         </button>
       </form>
       {responseMessage && <p className="response-message">{responseMessage}</p>}

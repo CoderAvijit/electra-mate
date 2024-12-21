@@ -1,0 +1,65 @@
+.service-page {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(to bottom right, #f7f7f7, #eaeaea);
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    margin: 20px auto;
+    max-width: 800px;
+  }
+  
+  .service-page img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-page img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .service-page h1 {
+    font-size: 2.5rem;
+    color: #222222;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .service-page p {
+    font-size: 1.2rem;
+    color: #444444;
+    line-height: 1.8;
+    font-family: 'Open Sans', sans-serif;
+    margin: 10px 0;
+  }
+  
+  .service-page button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    background-color: #0074d9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .service-page button:hover {
+    background-color: #005bb5;
+    transform: scale(1.1);
+  }
+  
+  .service-page button:active {
+    transform: scale(1);
+  }
+  

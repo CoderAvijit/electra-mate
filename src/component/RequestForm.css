@@ -1,6 +1,9 @@
+/* Request Form */
 .request-form {
-  width: 90%;
+  margin-left: 320px; /* Creates a gap between the .services-pane and .request-form */
+
   max-width: 500px;
+  width: 700px;
   margin: 2rem auto;
   padding: 1.5rem;
   border-radius: 10px;
@@ -8,7 +11,8 @@
   background-size: 400% 400%;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   animation: backgroundShift 10s infinite ease-in-out;
-  box-sizing: border-box; /* Ensures padding is included in width/height */
+  box-sizing: border-box;
+  margin: auto;
 }
 
 @keyframes backgroundShift {
@@ -45,10 +49,10 @@
     color: #ffa07a;
   }
   50% {
-    color: #fbd786;
+    color: #6a82fb; /* Replacing yellow with blue */
   }
   75% {
-    color: #6a82fb;
+    color: #ff9a9e; /* Soft pink */
   }
   100% {
     color: #ff6f91;
@@ -58,7 +62,7 @@
 .request-form form {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* Ensures even spacing between fields */
+  gap: 1rem;
 }
 
 .request-form input,
@@ -68,11 +72,11 @@
   padding: 0.8rem;
   border: 2px solid #fff;
   border-radius: 5px;
-  box-sizing: border-box; /* Keeps fields inside the container */
-  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
   background: rgba(255, 255, 255, 0.8);
   color: #333;
   font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+  box-sizing: border-box;
 }
 
 .request-form input:focus,
@@ -84,8 +88,8 @@
 }
 
 .request-form textarea {
-  resize: none; /* Prevents resizing of the textarea */
-  height: 100px; /* Ensures consistent height for the textarea */
+  resize: none;
+  height: 100px;
 }
 
 .request-form button {
@@ -121,8 +125,12 @@
   margin-top: 1rem;
   text-align: center;
   font-size: 1.1rem;
-  animation: fadeIn 1s forwards, textColorChange 5s infinite;
+  color: #4caf50; /* Default green for success */
 }
+.response-message.error {
+  color: #f44336; /* Red for errors */
+}
+
 
 @keyframes fadeIn {
   from {
