@@ -16,7 +16,7 @@ function App() {
       <SpeedInsights/>
       <div className="App">
         <header className="header">
-          <h1>Riju Electronics</h1>
+          <h1>Rana Electronics</h1>
           <p>Your trusted partner for appliance repairs</p>
           <Link to="/request-form" className="raise-request">
             Raise a Request?
@@ -61,9 +61,9 @@ function HomePage() {
   return (
     <div className="home-page">
       <section className="welcome">
-        <h2>Welcome to Riju Electronics</h2>
+        <h2>Welcome to Rana Electronics</h2>
         <p>
-          At Riju Electronics, we specialize in delivering exceptional appliance repair services 
+          At Rana Electronics, we specialize in delivering exceptional appliance repair services 
           to ensure your devices are back up and running in no time. With a team of expert 
           technicians and a commitment to quality, we are your go-to solution for reliable 
           and affordable repairs.
