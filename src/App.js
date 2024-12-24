@@ -8,10 +8,12 @@ import RefrigeratorFixes from './component/RefrigeratorFixes';
 import HeaterRepairs from './component/HeaterRepairs';
 import RequestForm from './component/RequestForm';
 import herobanner from './component/images/hero-banner.webp';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   return (
     <Router>
+      <SpeedInsights/>
       <div className="App">
         <header className="header">
           <h1>Riju Electronics</h1>
