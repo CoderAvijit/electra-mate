@@ -30,7 +30,6 @@ function App() {
                 <li><Link to="/tv-repair">TV Repair</Link></li>
                 <li><Link to="/ac-maintenance">AC Maintenance</Link></li>
                 <li><Link to="/refrigerator-fixes">Refrigerator Fixes</Link></li>
-                <li><Link to="/heater-repairs">Heater Repairs</Link></li>
               </ul>
             </aside>
 
@@ -101,7 +100,7 @@ function HomePage() {
         <p>
           Email us at{' '}
           <a
-            href="mailto:rijurana9@gmail.com"
+            href="mailto:ranaelectronicsappliances@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: '#0074d9', textDecoration: 'none', fontWeight: 'bold' }}
