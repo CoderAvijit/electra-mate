@@ -105,7 +105,7 @@ function HomePage() {
             rel="noopener noreferrer"
             style={{ color: '#0074d9', textDecoration: 'none', fontWeight: 'bold' }}
           >
-            rijurana9@gmail.com
+            ranaelectronicsappliances@gmail.com
           </a>
         </p>
       </section>
